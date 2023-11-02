@@ -1,0 +1,20 @@
+---
+- name: copyplaybook
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy_file_one.yml
+      copy:
+        src: one.yml
+        dest: /root
+    - name: copy_file
+      copy:
+        src: /root/mikki
+        dest: /root
+    - name: packaging_module
+      apt:
+        name: git
+        state: latest
+      tags:
+        - debug    
+
